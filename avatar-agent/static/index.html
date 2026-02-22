@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avatar Agent</title>
+    <!-- Modern Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="background-animation">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>وكيل الأفاتار الذكي 🤖</h1>
+            <p>حرك أي صورة ثابتة لتتحدث باستخدام الذكاء الاصطناعي</p>
+        </header>
+
+        <main class="glass-panel">
+            <form id="avatarForm">
+                <div class="upload-grid">
+                    <!-- Image Upload -->
+                    <div class="upload-box" id="imageBox">
+                        <div class="box-content">
+                            <span class="icon">📸</span>
+                            <h3>صورة الوجه</h3>
+                            <p>اضغط للرفع أو اسحب الصورة هنا</p>
+                            <input type="file" id="imageInput" accept="image/jpeg, image/png" hidden required>
+                        </div>
+                        <img id="imagePreview" class="preview" alt="Image Preview">
+                    </div>
+
+                    <!-- Audio Upload -->
+                    <div class="upload-box" id="audioBox">
+                        <div class="box-content">
+                            <span class="icon">🎙️</span>
+                            <h3>الملف الصوتي</h3>
+                            <p>اضغط للرفع أو اسحب ملف الصوت هنا (.wav)</p>
+                            <input type="file" id="audioInput" accept="audio/wav, audio/mpeg" hidden required>
+                        </div>
+                        <div id="audioPreview" class="preview audio-preview">
+                            <span class="icon">🎵</span>
+                            <span id="audioName" class="file-name"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quality-selector">
+                    <h3 class="quality-title">جودة الفيديو:</h3>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="quality" value="fast">
+                            <span class="custom-radio"></span>
+                            عادية (سريع ⚡)
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="quality" value="high" checked>
+                            <span class="custom-radio"></span>
+                            عالية 4K (بطيء 🎥)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="action-container">
+                    <button type="submit" id="generateBtn" class="btn-primary">
+                        <span class="btn-text">إنشاء الفيديو 🎬</span>
+                        <div class="spinner hidden"></div>
+                    </button>
+                </div>
+            </form>
+
+            <!-- Loading State -->
+            <div id="loadingState" class="processing-state hidden">
+                <div class="ai-loader">
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                </div>
+                <h3 id="statusText">جاري المعالجة بواسطة الذكاء الاصطناعي...</h3>
+                <p>قد يستغرق هذا بضع دقائق بناءً على طول المقطع الصوتي.</p>
+            </div>
+
+            <!-- Result Box -->
+            <div id="resultBox" class="result-box hidden">
+                <h3>الفيديو النهائي ✨</h3>
+                <div class="video-container">
+                    <video id="resultVideo" controls preload="metadata"></video>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn-secondary" onclick="location.reload()">إنشاء فيديو جديد</button>
+                    <a id="downloadBtn" href="#" download="avatar_video.mp4" class="btn-primary">تحميل الفيديو ⬇️</a>
+                </div>
+            </div>
+
+            <div id="errorBox" class="error-box hidden">
+                <h3>حدث خطأ ❌</h3>
+                <p id="errorMessage"></p>
+                <button class="btn-secondary mt-2"
+                    onclick="document.getElementById('errorBox').classList.add('hidden'); document.getElementById('generateBtn').classList.remove('hidden')">حاول
+                    مرة أخرى</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>مبني باستخدام SadTalker & FastAPI</p>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>

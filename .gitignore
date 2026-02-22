@@ -1,0 +1,23 @@
+# Model checkpoints (too large for GitHub)
+avatar-agent/sadtalker/checkpoints/
+avatar-agent/sadtalker/gfpgan/weights/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# macOS
+.DS_Store
+
+# Outputs (generated files)
+avatar-agent/outputs/
+
+# Inputs (user private files)
+avatar-agent/inputs/
+
+# Logs
+*.log
+avatar-agent/sadtalker/results/
+avatar-agent/sadtalker/

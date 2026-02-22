@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.alyasi.avataragent</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/alyasi/avatar agent plan/avatar-agent/run_service.sh</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>WorkingDirectory</key>
+    <string>/Users/alyasi/avatar agent plan/avatar-agent</string>
+    <key>StandardOutPath</key>
+    <string>/Users/alyasi/avatar agent plan/avatar-agent/outputs/service.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/alyasi/avatar agent plan/avatar-agent/outputs/service_error.log</string>
+</dict>
+</plist>
