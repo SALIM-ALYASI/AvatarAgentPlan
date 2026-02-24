@@ -8,7 +8,7 @@ source "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh"
 conda activate avatar
 
 # 3. Navigate to the project directory
-cd "/Users/alyasi/avatar agent plan/avatar-agent"
+cd "/Users/alyasi/MyProjects/AvatarAgentPlan/avatar-agent"
 
 # 4. Use exec to replace the bash shell with uvicorn (better for signals/stopping)
 # We bind it to 0.0.0.0 so it can be accessed on the local network if needed
